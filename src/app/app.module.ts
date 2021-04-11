@@ -3,16 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavComponent } from './components/nav/nav.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
+import { BodyComponent } from './components/body/body.component';
+import { ProductsComponent } from './components/products/products.component';
+import { FormsModule  } from '@angular/forms';
+import { ParentComponent } from './components/order/parent/parent.component';
+import { ChildComponent } from './components/order/child/child.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+// import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    FooterComponent,
+    MainComponent,
+    BodyComponent,
+    ProductsComponent,
+    ParentComponent,
+    ChildComponent,
+    ProductDetailsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule
+    ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
+//ReactiveFormsModule ,, HttpClientModule

@@ -1,0 +1,29 @@
+<br />
+<div class="jumbotron">
+  <div class="row mb-4">
+    <p class="h1 col-6">My Name : {{ pro.name }}</p>
+    <p class="h4 col-6">My Id : {{ pro.id }}</p>
+  </div>
+  <div class="row">
+    <span class="h4 mb-2 col-6"> My photo by interpression: </span>
+    <img class="rounded mb-2" rounded src="{{ pro.picture }}" />
+  </div>
+  <div class="row">
+    <span class="h4 mb-2 col-6"> My photo by Binding Property: </span>
+    <img class="rounded mb-2" rounded [src]="pro.picture" />
+  </div>
+  <div class="row">
+    <span class="h4 mb-2 col-6"> My photo by Path : </span>
+    <img class="rounded mb-2" rounded [src]="pro.photo" />
+  </div>
+
+  <div class="row">
+    <p class="h6 col-6">created At : {{ pro.currentdate }}</p>
+    <button class="btn btn-info" (click)="toggle()">switch hobby</button>
+    <ul *ngIf="isHobbyDisplay">
+      <li *ngFor="let hobby of pro.hobbies">
+        {{ hobby }}
+      </li>
+    </ul>
+  </div>
+</div>

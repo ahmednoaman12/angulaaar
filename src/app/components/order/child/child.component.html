@@ -1,0 +1,53 @@
+<div class="container">
+  <h2>Bordered Table</h2>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>no</th>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>quantity Needed</th>
+        <th>Buy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let data of getProductsByCatID(); let i = index"
+        [ngClass]="{
+          'text-danger': data.qantity == 0
+        }"
+
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ data.id }}</td>
+        <td>{{ data.name | lowercase }}</td>
+
+        <td>
+          <span [ngSwitch]="data.qantity">
+            <p *ngSwitchCase="0">Out of Stock</p>
+            <p *ngSwitchCase="1">Last Item</p>
+            <p *ngSwitchDefault>
+              {{ data.qantity }}
+            </p>
+          </span>
+        </td>
+        <td>{{ data.price | currency: "dollar":false }}</td>
+        <td><img [src]="data.img" /></td>
+        <td><input #Pcount type="number" min="1" [max]="data.qantity" [disabled]="data.qantity == 0"/></td>
+        <td>
+          <button
+            class="btn btn-primary"
+            (click)="TotalPrice(data.price, Pcount.value)"
+          >
+            Buy
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <div class="bg-info">Total Price in Child : {{ total }}</div> -->

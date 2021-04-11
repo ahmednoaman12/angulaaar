@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  one way binding : <input [value]="testBind" name="Fname" /> <br />
+  {{ testBind }}
+  <hr />
+  Two Way Binding: <input [(ngModel)]="testBind" name="Lname" />
+  <hr />
+  <div>Test : {{ testBind | uppercase }}</div>
+  <hr />
+</div>
+<div class="container">
+  <h2>Bordered Table</h2>
+  <!-- <p>
+    The .table-bordered class adds borders on all sides of the table and the
+    cells:
+  </p> -->
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>no</th>
+        <th>Prodyct ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let data of inter; let i = index"
+        [ngClass]="{ 'text-danger': data.qantity == 0, h4: data.qantity > 3 }"
+      >
+        <!-- [hidden]="data.qantity == 0" -->
+        <td>{{ i + 1 }}</td>
+        <td>{{ data.id }}</td>
+        <td>{{ data.name | lowercase }}</td>
+        <!-- <td>{{ data.qantity }}</td> -->
+        <td>
+          <span [ngSwitch]="data.qantity">
+            <p *ngSwitchCase="0">Out of Stock</p>
+            <p *ngSwitchCase="1">Last Item</p>
+            <p *ngSwitchDefault>
+              {{ data.qantity }}
+            </p>
+          </span>
+        </td>
+        <td>{{ data.price | currency: "dollar":false }}</td>
+        <td><img [src]="data.img" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
