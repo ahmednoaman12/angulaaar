@@ -12,7 +12,8 @@ import { FormsModule  } from '@angular/forms';
 import { ParentComponent } from './components/order/parent/parent.component';
 import { ChildComponent } from './components/order/child/child.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-// import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AllProductsComponent } from './components/connection laravel/all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,9 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ParentComponent,
     ChildComponent,
     ProductDetailsComponent,
+    AllProductsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent],
